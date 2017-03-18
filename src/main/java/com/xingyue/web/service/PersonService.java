@@ -40,7 +40,7 @@ public class PersonService extends BaseOperation{
         PersonOperation operation = session.getMapper(PersonOperation.class);
         List<Person> personList = null;
         try {
-            personList = operation.getPersonList(name);
+            personList = operation.selectUsers(name);
         } catch (Exception e) {
             e.printStackTrace();
         }

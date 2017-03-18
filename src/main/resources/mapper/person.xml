@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xingyue.web.mapper.PersonOperation">
-    <select id="selectUserByID" parameterType="int" resultType="Person">
+    <select id="selectUserByID" parameterType="int" resultType="com.xingyue.web.mapping.Person">
         select * from `person` where userID = #{id}
     </select>
 
 
 
-    <resultMap id="personList" type="Person">
+    <resultMap type="com.xingyue.web.mapping.Person" id="Person" >
         <id column="userid" property="userID"></id>
         <id column="username" property="userName"></id>
         <id column="userpwd" property="userPwd"></id>
@@ -16,12 +16,12 @@
         <id column="age" property="age"></id>
     </resultMap>
 
-    <select id="getPersonList" parameterType="string" resultMap="personList">
+    <select id="selectUsers" parameterType="string" resultMap="Person">
       SELECT  * from person where userName like #{userName}
     </select>
 
 
-    <insert id="addPerson" useGeneratedKeys="true" keyProperty="userid" parameterType="Person" >
+    <insert id="addPerson" useGeneratedKeys="true" keyProperty="userid" parameterType="com.xingyue.web.mapping.Person" >
         INSERT INTO person(userName, userPwd, address, age) VALUE (#{userName},#{userPwd},#{address},#{age})
     </insert>
 

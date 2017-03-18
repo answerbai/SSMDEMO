@@ -1,8 +1,11 @@
 package com.xingyue.web;
 
 
+import com.xingyue.web.mapper.PersonOperation;
 import com.xingyue.web.mapping.Person;
 import com.xingyue.web.service.PersonService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
@@ -18,6 +21,20 @@ public class SSMMain {
         getUserInfo();
         getPersonByInterFace();
         getPersonList();
+
+
+        /*ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+        PersonOperation operation = (PersonOperation) context.getBean("userMapper");
+
+        Person person = operation.selectUserByID(1);
+
+        System.out.println("getPersonBySpring:");
+        System.out.println(person.getUserName());
+        System.out.println(person.getAge());
+        System.out.println();*/
+
+
 
     }
 

@@ -11,7 +11,7 @@ public interface PersonOperation {
 
     Person selectUserByID(int id);
 
-    List<Person> getPersonList(String userName);
+    List<Person> selectUsers(String userName);
 
     void addPerson(Person person);
 }
